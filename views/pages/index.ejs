@@ -1,15 +1,11 @@
-<%- include('../partials/header'); %>
+<%- include('../partials/header') %>
 
-<ul>
+
 <% allAlbums.forEach(function(album) { %>
-    <li>
-        <strong><%= album.name %></strong>
-        by <%= album.artist.name %>
-    </li>
+    <a href="/mbid/<%= album.mbid%>">
+        <img src=<%= album.image[3]['#text'] %> />
+    </a>
 <% }) %>
-</ul>
 
 
-
-
-<%- include('../partials/footer'); %>
+<%- include('../partials/footer') %>

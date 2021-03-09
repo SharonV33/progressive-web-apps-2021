@@ -1,3 +1,50 @@
 body {
     background-color: lightgray;
+    margin: 0;
+}
+
+header {
+    text-align: center;
+    width: 100vw;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+/*home styling*/
+
+/*album detail styling*/
+.albumDetails {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    width: 70vw;
+}
+
+.albumDetails img {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.albumDetails section {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.albumDetails ul {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+}
+
+footer a {
+    margin: 0 2em;
 }

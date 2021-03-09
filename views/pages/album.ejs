@@ -1,1 +1,23 @@
-<% title %>
+<%- include('../partials/header') %>
+
+<a href="/" class="back">back</a>
+<section class="albumDetails">
+    <img src=<%= albumInfo.image[3]['#text'] %> />
+    <section>
+        <h2><%= albumInfo.name %></h2>
+        <h2><%= albumInfo.artist %></h2>
+        <p><%= albumInfo.wiki.published%></p>
+    </section>
+
+    <ul>
+        <% tracks.forEach(function(song) { %>
+            <li>
+                <%= song.name%>
+            </li>
+        <% }) %>
+    </ul>
+    <p>
+        <%= albumInfo.wiki.summary%>
+    </p>
+</section>
+<%- include('../partials/footer') %>

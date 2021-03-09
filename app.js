@@ -17,8 +17,11 @@ app.get('/', function(req, res) {
             // We got an error
             res.send(err)
         } else {
+            //clean data
+            const data = body.albums.album.filter((album) => album.mbid)
+
             res.render('pages/index', {
-                allAlbums: body.albums.album
+                allAlbums: data
             })
         }
     })
@@ -26,9 +29,18 @@ app.get('/', function(req, res) {
 
 //detail page
 app.get('/mbid/:id', function (req, res) {
-    console.log(req.params.id)
-    res.render('pages/album', {
-        title: `Post ${req.params.id}`
+    request('https://ws.audioscrobbler.com/2.0/?method=album.getinfo&mbid=' + req.params.id + '&api_key=b0cbd53d2ea5b525c2a0447aa31fcd10&format=json', {json: true}, function (err, requestRes, body){
+        if (err) {
+            // We got an error
+            res.send(err)
+        } else {
+            //clean data
+
+            res.render('pages/album', {
+                albumInfo: body.album,
+                tracks: body.album.tracks.track
+            })
+        }
     })
 })
 
