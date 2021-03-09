@@ -8,14 +8,15 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cmda-minor-web/progressive-web-apps-2021.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Sharon Veldman",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/cmda-minor-web/progressive-web-apps-2021/issues"
   },
@@ -23,6 +24,7 @@
   "dependencies": {
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "request": "^2.88.2"
   }
 }
