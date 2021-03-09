@@ -1,0 +1,12 @@
+<%- include('../partials/header'); %>
+
+<ul>
+    <% allAlbums.forEach(function(album) { %>
+        <li>
+            <strong><%= album.name %></strong>
+            by <%= album.artist %>
+        </li>
+    <% }) %>
+</ul>
+
+<%- include('../partials/footer'); %>
