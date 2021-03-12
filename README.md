@@ -1,5 +1,7 @@
 # Progressive Web Apps @cmda-minor-web · 20-21
 
+[live link](https://music-discovery-cmd.herokuapp.com/)
+
 ## about the app
 This app will help you to discover new and awesome music in the best genre there is, metalcore. Browse through the 
 latest and most popular albums there are and get inspired by new bands and albums. 
