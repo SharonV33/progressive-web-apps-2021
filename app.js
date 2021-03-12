@@ -2,7 +2,7 @@ const express = require('express')
 const request = require('request')
 const app = express()
 
-const hostname = '127.0.0.1'
+
 const port = 8080
 
 app.set('view engine', 'ejs')
@@ -47,6 +47,6 @@ app.get('/mbid/:id', function (req, res) {
 
 
 app.listen(process.env.PORT || port, () => {
-    console.log(`Server running at http://:${port}/`)
+    console.log(`Server running at http://localhost:${port}/`)
 })
 
