@@ -13,7 +13,7 @@ app.use(express.static('public'))
 
 //home page
 app.get('/', function(req, res) {
-    const genre = "deathcore"
+    const genre = "metalcore"
     request(`https://ws.audioscrobbler.com/2.0/?method=tag.gettopalbums&tag=${genre}&limit=100&api_key=b0cbd53d2ea5b525c2a0447aa31fcd10&format=json`, {json: true}, function (err, requestRes, body){
         if (err) {
             // We got an error
