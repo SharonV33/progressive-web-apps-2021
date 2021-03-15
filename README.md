@@ -60,7 +60,8 @@ of album art. This structure is repeated for each album, making it easy to creat
 
 
 ## Wishlist of features
-- [ ] convert app to node.js
+- [X] convert app to node.js
+- [ ] Error handling
 - [ ] Change genre
 
 MIT License

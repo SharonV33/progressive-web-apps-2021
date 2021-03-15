@@ -3,7 +3,7 @@
 
 <% allAlbums.forEach(function(album) { %>
     <a href="/mbid/<%= album.mbid%>">
-        <img src=<%= album.image[3]['#text'] %> />
+        <img src='<%= album.image[3]['#text'] %>' alt='<%= album.name %> - <%= album.artist.name%>' />
     </a>
 <% }) %>
 
