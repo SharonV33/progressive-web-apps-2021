@@ -1,11 +1,12 @@
 {
   "name": "Album Discovery",
   "short_name": "AlbumDiscovery",
+  "description": "",
   "start_url": "./",
   "scope": ".",
 
   "display" : "standalone",
-  "background_color": "#000000",
+  "background_color": "#898989",
   "theme_color": "#191919",
   "orientation": "portrait-primary",
 

@@ -44,6 +44,11 @@ app.get('/mbid/:id', function (req, res) {
     })
 })
 
+app.get('/offline', function(req, res) {
+    res.render('pages/offline')
+})
+
+
 //the "process.env.PORT" is specific for Heroku deployment
 app.listen(process.env.PORT || port, () => {
     console.log(`Server running at http://localhost:${port}/`)
