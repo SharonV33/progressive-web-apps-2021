@@ -6,19 +6,19 @@
     <section>
         <h2><%= albumInfo.name %></h2>
         <h2><%= albumInfo.artist %></h2>
-        <p><%= albumInfo.wiki.published%></p>
+        <p><%= albumInfo.wiki.published %></p>
     </section>
-
     <ul>
         <% tracks.forEach(function(song) { %>
             <li>
-                <%= song.name%>
+                <%= song.name %>
             </li>
         <% }) %>
     </ul>
     <p>
-        <%= albumInfo.wiki.summary%>
+        <%= albumInfo.wiki.summary %>
+
+        <a id="addFavourite" href="/mbid/<%= albumInfo.mbid%>/favourites">Add to favourites</a>
     </p>
-    <button id="addFavourite">Add to favourites</button>
 </section>
 <%- include('../partials/footer') %>

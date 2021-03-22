@@ -12,6 +12,7 @@ main {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    height: 100%;
 
 }
 /*home styling*/
@@ -19,9 +20,9 @@ main {
 /*album detail styling*/
 .albumDetails {
     display: grid;
-    grid-template-columns: 2fr 1fr 2fr;
-    grid-template-rows: 1fr 1fr;
-    width: 70vw;
+    grid-template-columns: 2fr 1fr 3fr;
+    grid-template-rows: 1fr 2fr;
+    width: 80vw;
 }
 
 .albumDetails img {
@@ -32,11 +33,22 @@ main {
 .albumDetails section {
     grid-column: 2;
     grid-row: 1;
+    justify-self: center;
+    margin-left: 2em;
 }
 
 .albumDetails ul {
     grid-column: 3;
-    grid-row: 1;
+    grid-row: 1 / span 2;
+}
+
+.albumDetails p {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+}
+
+.albumDetails p a {
+    height: 2em;
 }
 
 footer {

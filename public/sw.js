@@ -1,5 +1,5 @@
 const staticCacheName = 'site-static'
-const assets = ['manifest.json', '/', 'style.css']
+const assets = ['style.css', '/favourites']
 
 self.addEventListener('install', (event) => {
     event.waitUntil(
@@ -15,6 +15,11 @@ self.addEventListener('activate', (evt) => {
 })
 
 // fetch event
-self.addEventListener('fetch', (evt) => {
-
+self.addEventListener('fetch', (event) => {
+    event.respondWith(
+        //check if request already exists in cache, else fetch it
+        caches.match(event.request).then(cacheRes => {
+                return cacheRes || fetch(event.request)
+            })
+    )
 })

@@ -63,7 +63,6 @@ of album art. This structure is repeated for each album, making it easy to creat
 - [X] convert app to node.js
 - [ ] fix mobile view
 - [ ] save albums for offline viewing
-- [ ] Error handling
 - [ ] Change genre
 
 MIT License

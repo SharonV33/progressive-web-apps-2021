@@ -1,7 +1,8 @@
 const express = require('express')
 const request = require('request')
-const app = express()
+const compression = require('compression')
 
+const app = express()
 
 const port = 8080
 
@@ -9,6 +10,8 @@ app.set('view engine', 'ejs')
 app.set('views', 'views')
 
 app.use(express.static('public'))
+
+app.use(compression())
 
 
 //home page
@@ -44,8 +47,17 @@ app.get('/mbid/:id', function (req, res) {
     })
 })
 
-app.get('/offline', function(req, res) {
-    res.render('pages/offline')
+app.get('/favourites', function(req, res) {
+    //get cache items
+    res.render('pages/favourites')
+})
+
+app.get('/mbid/:id/favourites', function (req, res) {
+    //add item to cache
+    //then show favourites
+    res.render('pages/favourites', {
+
+    })
 })
 
 
