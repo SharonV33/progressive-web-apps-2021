@@ -18,8 +18,12 @@ self.addEventListener('activate', (evt) => {
 self.addEventListener('fetch', (event) => {
     event.respondWith(
         //check if request already exists in cache, else fetch it
-        caches.match(event.request).then(cacheRes => {
+        caches.match(event.request)
+            .then(cacheRes => {
                 return cacheRes || fetch(event.request)
+            })
+            .catch((err) => {
+                return caches.open(staticCacheName).then(cache => cache.match('/favourites'))
             })
     )
 })
