@@ -2,6 +2,11 @@ const express = require('express')
 const request = require('request')
 const compression = require('compression')
 
+
+const bodyParser = require('body-parser')
+// const jsonParser = bodyParser.json()
+const urlencodedParser = bodyParser.urlencoded({ extended: false })
+
 const app = express()
 
 const port = 8080
@@ -12,6 +17,8 @@ app.set('views', 'views')
 app.use(express.static('public'))
 
 app.use(compression())
+
+let favouriteAlbums = []
 
 
 //home page
@@ -49,15 +56,28 @@ app.get('/mbid/:id', function (req, res) {
 
 app.get('/favourites', function(req, res) {
     //get cache items
-    res.render('pages/favourites')
+    console.log(favouriteAlbums)
+    res.render('pages/favourites', {
+        allAlbums: favouriteAlbums
+    })
 })
 
-app.get('/mbid/:id/favourites', function (req, res) {
+app.post('/favourites', urlencodedParser, function (req, res) {
     //add item to cache
     //then show favourites
-    res.render('pages/favourites', {
-
+    request(`https://ws.audioscrobbler.com/2.0/?method=album.getinfo&mbid=${req.body.albumID}&api_key=b0cbd53d2ea5b525c2a0447aa31fcd10&format=json`, {json: true}, function (err, requestRes, body){
+        if (err) {
+            // We got an error
+            res.send(err)
+        } else {
+            favouriteAlbums.push(body)
+            res.render('pages/favourites', {
+                allAlbums: favouriteAlbums
+            })
+        }
     })
+
+
 })
 
 

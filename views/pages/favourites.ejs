@@ -3,6 +3,14 @@
 <section class="offline">
     <h1>You are offline</h1>
     <p>here are your favourite albums</p>
+
+    <% allAlbums.forEach(function(album) { %>
+        <a href="/mbid/<%= album.album.mbid%>">
+            <img src='<%= album.album.image[3]['#text'] %>' alt='<%= album.album.name %> - <%= album.album.artist.name%>' />
+        </a>
+    <% }) %>
+
+
 </section>
 
 

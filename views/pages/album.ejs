@@ -18,7 +18,11 @@
     <p>
         <%= albumInfo.wiki.summary %>
 
-        <a id="addFavourite" href="/mbid/<%= albumInfo.mbid%>/favourites">Add to favourites</a>
+        <form action="/favourites" method="POST">
+            <input name="albumID" value="<%- albumInfo.mbid %>" style="display:none">
+            <input type="submit">
+        </form>
+        <!--<a id="addFavourite" href="/mbid//favourites">Add to favourites</a>-->
     </p>
 </section>
 <%- include('../partials/footer') %>
