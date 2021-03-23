@@ -54,14 +54,15 @@ app.get('/mbid/:id', function (req, res) {
     })
 })
 
+//favourites page
 app.get('/favourites', function(req, res) {
     //get cache items
-    console.log(favouriteAlbums)
     res.render('pages/favourites', {
         allAlbums: favouriteAlbums
     })
 })
 
+//post albums to favourites
 app.post('/favourites', urlencodedParser, function (req, res) {
     //add item to cache
     //then show favourites
@@ -70,14 +71,11 @@ app.post('/favourites', urlencodedParser, function (req, res) {
             // We got an error
             res.send(err)
         } else {
+            console.log('post', favouriteAlbums)
             favouriteAlbums.push(body)
-            res.render('pages/favourites', {
-                allAlbums: favouriteAlbums
-            })
+            res.redirect('/favourites')
         }
     })
-
-
 })
 
 

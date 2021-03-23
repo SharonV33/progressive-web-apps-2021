@@ -1,6 +1,8 @@
 <%- include('../partials/header') %>
 
-<a href="/" class="back">back</a>
+<a href="/" class="back">
+    <i></i>
+</a>
 <section class="albumDetails">
     <img src=<%= albumInfo.image[3]['#text'] %> />
     <section>
@@ -15,14 +17,14 @@
             </li>
         <% }) %>
     </ul>
-    <p>
+    <section>
         <%= albumInfo.wiki.summary %>
 
         <form action="/favourites" method="POST">
             <input name="albumID" value="<%- albumInfo.mbid %>" style="display:none">
-            <input type="submit">
+            <input type="submit" value="&#9829;Add this ablum to your favourites?&#9829;">
         </form>
-        <!--<a id="addFavourite" href="/mbid//favourites">Add to favourites</a>-->
-    </p>
+    </section>
+
 </section>
 <%- include('../partials/footer') %>

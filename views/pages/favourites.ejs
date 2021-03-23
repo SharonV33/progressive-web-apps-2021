@@ -1,8 +1,8 @@
 <%- include('../partials/header') %>
 
-<section class="offline">
-    <h1>You are offline</h1>
-    <p>here are your favourite albums</p>
+<section class="favourite">
+
+    <h2>here are your favourite albums</h2>
 
     <% allAlbums.forEach(function(album) { %>
         <a href="/mbid/<%= album.album.mbid%>">
