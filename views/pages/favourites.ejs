@@ -3,12 +3,14 @@
 <section class="favourite">
 
     <h2>here are your favourite albums</h2>
-
+    <% if (allAlbums.length === 0) { %>
+        <p>you don't have any favourite's yet</p>
+    <% } else { %>
     <% allAlbums.forEach(function(album) { %>
         <a href="/mbid/<%= album.album.mbid%>">
             <img src='<%= album.album.image[3]['#text'] %>' alt='<%= album.album.name %> - <%= album.album.artist.name%>' />
         </a>
-    <% }) %>
+    <% }) } %>
 
 
 </section>
