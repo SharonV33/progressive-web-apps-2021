@@ -1,5 +1,5 @@
 const staticCacheName = 'site-static'
-const assets = ['/style.css', '/script.js', '/manifest.json', '/favourites', '/img/icons/icon-92x92.png']
+const assets = ['/style.css', '/script.js', '/manifest.json', '/favourites', '/img/icons/icon-92x92.png', '/storeAlbums.js']
 
 self.addEventListener('install', (event) => {
     event.waitUntil(
@@ -16,10 +16,10 @@ self.addEventListener('activate', (evt) => {
 
 // fetch event
 self.addEventListener('fetch', (event) => {
-    if (event.request.url.includes('favourites') || event.request.url.includes('mbid') || event.request.destination == 'image') {
+    if (event.request.url.includes('mbid')) {
         event.respondWith(
             //open cache
-            caches.open(staticCacheName)
+            caches.open('favouriteCache')
                 .then(cache => {
                     //match cache with current request to see if request already excists
                     return cache.match(event.request).then(
@@ -30,7 +30,7 @@ self.addEventListener('fetch', (event) => {
                                     cache.put(event.request, res.clone())
                                     return res
                                 })
-                            //if request excists in cache, return this
+                            //if request exists in cache, return this
                                 .catch(() => {
                                     if (response) {
                                         return response
@@ -47,7 +47,7 @@ self.addEventListener('fetch', (event) => {
             caches.open(staticCacheName)
                 .then(cache => {
                     //match cache with current request to see if request already exists
-                    return caches.match(event.request).then(
+                    return cache.match(event.request).then(
                         response => {
                             if (response) {
                                 return response

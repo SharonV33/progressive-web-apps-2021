@@ -11,7 +11,7 @@
         <p><%= albumInfo.wiki.published %></p>
     </section>
     <ul>
-        <% tracks.forEach(function(song) { %>
+        <% albumInfo.tracks.track.forEach(function(song) { %>
             <li>
                 <%= song.name %>
             </li>
@@ -19,12 +19,13 @@
     </ul>
     <section>
         <%= albumInfo.wiki.summary %>
-
-        <form action="/favourites" method="POST">
-            <input name="albumID" value="<%- albumInfo.mbid %>" style="display:none">
-            <input type="submit" value="&#9829;Add this ablum to your favourites?&#9829;">
-        </form>
     </section>
-
+    <input name="albumID" value="<%- albumInfo.mbid %>" style="display:none">
 </section>
+
+<script>
+    const image = document.querySelector('img').src
+    const albumID = document.querySelector('input').value
+    localStorage[albumID] = image
+</script>
 <%- include('../partials/footer') %>

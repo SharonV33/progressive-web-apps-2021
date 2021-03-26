@@ -18,8 +18,6 @@ app.use(express.static('public'))
 
 app.use(compression())
 
-let favouriteAlbums = []
-
 
 //home page
 app.get('/', function(req, res) {
@@ -47,35 +45,20 @@ app.get('/mbid/:id', function (req, res) {
             res.send(err)
         } else {
             res.render('pages/album', {
-                albumInfo: body.album,
-                tracks: body.album.tracks.track
+                albumInfo: body.album
             })
         }
     })
 })
 
+
 //favourites page
 app.get('/favourites', function(req, res) {
     //get cache items
-    res.render('pages/favourites', {
-        allAlbums: favouriteAlbums
-    })
+    res.render('pages/favourites')
 })
 
-//post albums to favourites
-app.post('/favourites', urlencodedParser, function (req, res) {
-    //add item to cache
-    //then show favourites
-    request(`https://ws.audioscrobbler.com/2.0/?method=album.getinfo&mbid=${req.body.albumID}&api_key=b0cbd53d2ea5b525c2a0447aa31fcd10&format=json`, {json: true}, function (err, requestRes, body){
-        if (err) {
-            // We got an error
-            res.send(err)
-        } else {
-            favouriteAlbums.push(body)
-            res.redirect('/favourites')
-        }
-    })
-})
+
 
 
 //the "process.env.PORT" is specific for Heroku deployment
