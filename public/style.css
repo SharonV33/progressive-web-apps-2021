@@ -83,10 +83,15 @@ header a p span {
 /*favourite styling*/
 .favourite {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
     height: 100%;
 }
 
+.favourite h2 {
+    width: 100%;
+    text-align: center;
+}
 footer {
     display: flex;
     align-items: center;

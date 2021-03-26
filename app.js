@@ -71,7 +71,6 @@ app.post('/favourites', urlencodedParser, function (req, res) {
             // We got an error
             res.send(err)
         } else {
-            console.log('post', favouriteAlbums)
             favouriteAlbums.push(body)
             res.redirect('/favourites')
         }

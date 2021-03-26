@@ -36,8 +36,6 @@ self.addEventListener('fetch', (event) => {
                                         return response
                                     }
                                 })
-                            //else fetch the request and put it into the cache
-
                         }
                     )
                 })
@@ -48,7 +46,7 @@ self.addEventListener('fetch', (event) => {
             //open cache
             caches.open(staticCacheName)
                 .then(cache => {
-                    //match cache with current request to see if request already excists
+                    //match cache with current request to see if request already exists
                     return caches.match(event.request).then(
                         response => {
                             if (response) {
