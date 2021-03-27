@@ -5,9 +5,8 @@ caches.open(staticCacheName)
         cache.keys()
             .then(response => {
                 if (response.length === 0) {
-                    section.innerHTML = '<p>You dont have any albums available</p>'
+                    section.innerHTML += '<p>You dont have any albums available</p>'
                 }
-                console.log(response)
                 response.forEach(album => {
                     if (album.url.includes('mbid')) {
                         console.log(album)
@@ -19,5 +18,3 @@ caches.open(staticCacheName)
 
             })
     })
-
-console.log('hoi')

@@ -4,12 +4,9 @@
     <i></i>
 </a>
 <section class="albumDetails">
-    <img src=<%= albumInfo.image[3]['#text'] %> />
-    <section>
         <h2><%= albumInfo.name %></h2>
         <h2><%= albumInfo.artist %></h2>
-        <p><%= albumInfo.wiki.published %></p>
-    </section>
+    <img src=<%= albumInfo.image[3]['#text'] %> />
     <ul>
         <% albumInfo.tracks.track.forEach(function(song) { %>
             <li>
@@ -18,7 +15,10 @@
         <% }) %>
     </ul>
     <section>
-        <%= albumInfo.wiki.summary %>
+        <p><%- albumInfo.wiki.summary %></p>
+        <p>Published: <%= albumInfo.wiki.published %></p>
+        <p>Playcount: <%= albumInfo.playcount %></p>
+        <p>Listeners: <%= albumInfo.listeners %></p>
     </section>
     <input name="albumID" value="<%- albumInfo.mbid %>" style="display:none">
 </section>

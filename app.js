@@ -3,10 +3,6 @@ const request = require('request')
 const compression = require('compression')
 
 
-const bodyParser = require('body-parser')
-// const jsonParser = bodyParser.json()
-const urlencodedParser = bodyParser.urlencoded({ extended: false })
-
 const app = express()
 
 const port = 8080

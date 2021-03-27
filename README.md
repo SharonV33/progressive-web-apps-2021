@@ -1,18 +1,17 @@
 # Progressive Web Apps @cmda-minor-web · 20-21
 
-[live link](https://music-discovery-cmd.herokuapp.com/)
+[Live link](https://music-discovery-cmd.herokuapp.com/)
 
 ## about the app
 This app will help you to discover new and awesome music in the best genre there is, metalcore. Browse through the 
 latest and most popular albums there are and get inspired by new bands and albums. 
 
-<img src="https://i.ibb.co/dW3NVFC/smaller.jpg">
+<img src="https://i.ibb.co/TwQsvvq/image.png" alt="Screenshot of the overview page of Music Discovery">
 
 ## Tabe of content
 * [installing](#installing)
 * [Usage and features](#usage-and-features)
 * [last.fm api](#last.fm-api)
-* [wishlist of features](#wishlist-of-features)
 
 ## installing
 clone the repo
@@ -38,8 +37,14 @@ http://localhost:8080/
 
 
 ## Usage and features
-This web app can be used to get inspiration for new music to listen to. Some features are:
-- viewing album information like artist, release date and tracklist. 
+<img src="https://i.ibb.co/cCRkrxP/image.png" alt="Screenshot of download popup">
+Since this website is a progressive web app, it can be downloaded both on a computer as on a mobile device.
+This lets the user experience the website as if it is a native app.
+
+<img src="https://i.ibb.co/xhmwpc2/image.png" alt="Screenshot of favourites page">
+When you are browsin, you might want to store some albums that you either love or want to check out. This
+can now be done by adding albums to your favourites. This page is also available offline thanks to LocalStorage 
+and cache
 
 
 ## last.fm api
@@ -58,11 +63,5 @@ By using a XMLHttpRequest on the link, I was able to get the data quite easily. 
 Each album has a name, a url to the related page on last.fm, a unique identifyer, information about the artist and 4 formats
 of album art. This structure is repeated for each album, making it easy to create a template which I can fill with data.
 
-
-## Wishlist of features
-- [X] convert app to node.js
-- [ ] fix mobile view
-- [ ] save albums for offline viewing
-- [ ] Change genre
 
 MIT License
