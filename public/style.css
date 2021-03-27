@@ -28,10 +28,17 @@ main {
     flex-wrap: wrap;
     flex: 1;
     margin: 5em 0;
+
 }
 /*home styling*/
 
+
 /*album detail styling*/
+
+article {
+    flex-direction: column;
+}
+
 a i {
     border: solid #62D9CD;
     border-width: 0 3px 3px 0;
@@ -42,63 +49,64 @@ a i {
     margin-right: 1em;
 }
 
-.albumDetails {
-    display: flex;
-    grid-template-columns: 1fr 1fr;
-    width: 40vw;
-    grid-column-gap: 4em;
-}
-
-.albumDetails h2{
-    color: #62D9CD;
-    grid-row: 1;
-}
-
-.albumDetails h2:first-of-type {
-    justify-self: end;
-    grid-column: 1;
-    grid-row: 1;
-}
-
-.albumDetails h2:nth-of-type(2 ){
-    justify-self: start;
-    grid-column: 2;
-    grid-row: 1;
-}
-
-.albumDetails img {
-    grid-column: 1 ;
-    grid-row: 2;
+article section {
     margin-bottom: 1em;
-    justify-self: end;
 }
 
-.albumDetails ul {
-    grid-column: 2;
-    grid-row: 2;
+article section:first-of-type {
+    width: 80%;
+    margin: 0 auto;
+}
+
+article section:nth-of-type(2),
+article section:nth-of-type(3) {
+    display: flex;
+    justify-content: center;
+}
+
+article section h2 {
+    margin: 0 1em;
+    flex: 1;
+    color: #62D9CD;
+}
+
+article section h2:first-of-type {
+    text-align: end;
+}
+
+article section:nth-of-type(3) div,
+article section:nth-of-type(3) ul {
+    margin: 0 1em;
+    flex: 1;
+}
+
+article section:nth-of-type(3) div {
+    display: flex;
+    justify-content: flex-end;
+}
+
+article section:nth-of-type(3) ul {
     list-style: none;
     padding: 0;
+    margin-left: 2em;
 }
 
-.albumDetails ul li {
-    margin: 0.5em 0;
+article section:nth-of-type(3) ul li {
+    margin-bottom: 0.4em;
 }
 
-.albumDetails section {
-    grid-column: 1 / span 2;
-    grid-row: 3;
-}
-
-.albumDetails section p {
+article section:nth-of-type(4) {
+    text-align: center;
+    align-self: center;
     line-height: 1.6em;
+    margin: auto;
+    width: 50%;
 }
 
-.albumDetails form input[type=submit] {
-    border: none;
-    background-color: unset;
-    text-decoration: underline;
-    font-size: 1em;
-    margin: 2em;
+article section:nth-of-type(4) p a,
+article section:nth-of-type(4) p a:visited {
+    color: #62D9CD;
+    text-decoration: none;
 }
 
 header a p span {
@@ -116,6 +124,10 @@ header a p span {
 .favourite h2 {
     width: 100%;
     text-align: center;
+}
+
+.favourite p {
+    color: #ffffff;
 }
 footer {
     display: flex;

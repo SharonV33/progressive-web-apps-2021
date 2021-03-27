@@ -1,31 +1,39 @@
 <%- include('../partials/header') %>
-
-<a href="/" class="back">
-    <i></i>
-</a>
-<section class="albumDetails">
+<article>
+    <section>
+        <a href="/" class="back">
+            <i></i>
+        </a>
+    </section>
+    <section>
         <h2><%= albumInfo.name %></h2>
         <h2><%= albumInfo.artist %></h2>
-    <img src=<%= albumInfo.image[3]['#text'] %> />
-    <ul>
-        <% albumInfo.tracks.track.forEach(function(song) { %>
-            <li>
-                <%= song.name %>
-            </li>
-        <% }) %>
-    </ul>
+    </section>
+    <section>
+        <div>
+            <img src=<%= albumInfo.image[3]['#text'] %> />
+        </div>
+        <ul>
+            <% albumInfo.tracks.track.forEach(function(song) { %>
+                <li>
+                    <%= song.name %>
+                </li>
+            <% }) %>
+        </ul>
+    </section>
     <section>
         <p><%- albumInfo.wiki.summary %></p>
         <p>Published: <%= albumInfo.wiki.published %></p>
         <p>Playcount: <%= albumInfo.playcount %></p>
         <p>Listeners: <%= albumInfo.listeners %></p>
     </section>
-    <input name="albumID" value="<%- albumInfo.mbid %>" style="display:none">
-</section>
 
-<script>
-    const image = document.querySelector('img').src
-    const albumID = document.querySelector('input').value
-    localStorage[albumID] = image
-</script>
+    <input name="albumID" value="<%- albumInfo.mbid %>" style="display:none">
+
+    <script>
+        const image = document.querySelector('img').src
+        const albumID = document.querySelector('input').value
+        localStorage[albumID] = image
+    </script>
+</article>
 <%- include('../partials/footer') %>

@@ -1,20 +1,22 @@
 const staticCacheName = 'favouriteCache'
 const section = document.querySelector('.favourite')
-caches.open(staticCacheName)
-    .then(cache => {
-        cache.keys()
-            .then(response => {
-                if (response.length === 0) {
-                    section.innerHTML += '<p>You dont have any albums available</p>'
-                }
-                response.forEach(album => {
-                    if (album.url.includes('mbid')) {
-                        console.log(album)
-                        const urlPart = album.url.split('/mbid/')
-                        console.log(urlPart)
-                        section.innerHTML += `<a href="${album.url}"> <img src="${window.localStorage.getItem(urlPart[1])}"> </a>`
-                    }
-                })
 
-            })
+async function loadFavorites () {
+    const cache = await caches.open(staticCacheName)
+    const response = await cache.keys()
+
+    if (response.length === 0) {
+        section.innerHTML += '<p>You havent viewed any albums yet, go online and check some metalcore albums </p>'
+        return;
+    }
+
+    response.forEach(album => {
+        if (album.url.includes('mbid')) {
+            const urlPart = album.url.split('/mbid/')
+
+            section.innerHTML += `<a href="/mbid/${urlPart[1]}"><img src="${window.localStorage.getItem(urlPart[1])}"></a>`
+        }
     })
+}
+
+loadFavorites()
