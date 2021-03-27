@@ -6,7 +6,7 @@
 This app will help you to discover new and awesome music in the best genre there is, metalcore. Browse through the 
 latest and most popular albums there are and get inspired by new bands and albums. 
 
-<img src="https://i.ibb.co/TwQsvvq/image.png" alt="Screenshot of the overview page of Music Discovery">
+<img src="https://i.ibb.co/wWtcqp3/image.png" alt="Screenshot of the overview page of Music Discovery">
 
 ## Tabe of content
 * [installing](#installing)
@@ -37,14 +37,16 @@ http://localhost:8080/
 
 
 ## Usage and features
+<img src="https://i.ibb.co/wWtcqp3/image.png" alt="Screenshot of the overview page of Music Discovery">
+Browse the most populair metalcore albums and get inspired to listen to new albums and artists
+
 <img src="https://i.ibb.co/cCRkrxP/image.png" alt="Screenshot of download popup">
 Since this website is a progressive web app, it can be downloaded both on a computer as on a mobile device.
 This lets the user experience the website as if it is a native app.
 
-<img src="https://i.ibb.co/xhmwpc2/image.png" alt="Screenshot of favourites page">
-When you are browsin, you might want to store some albums that you either love or want to check out. This
-can now be done by adding albums to your favourites. This page is also available offline thanks to LocalStorage 
-and cache
+<img src="https://i.ibb.co/PGqL4tZ/image.png" alt="Screenshot of recently viewed page">
+Ever forget what that one album was called? you can look back at what albums you recently viewed to easily find
+that one album back. These results are also available offline so you can look back whenever you want
 
 
 ## last.fm api

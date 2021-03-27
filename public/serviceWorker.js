@@ -15,42 +15,57 @@ self.addEventListener('activate', (evt) => {
 })
 
 // fetch event
-
-async function storeFavorite (event) {
-    const cache = await caches.open('favouriteCache')
-    const match = await cache.match(event.request)
-    const response = await fetch(event.request)
-
-    if (!match) {
-        cache.delete(event.request)
-        cache.put(event.request, response.clone())
-    }
-
-    return response
-}
-
-async function cachedResponse (event) {
-    const cache = await caches.open(staticCacheName)
-    const match = await cache.match(event.request)
-
-    if (match) {
-        console.log('I match!')
-        return match
-    }
-
-    try {
-        return await fetch(event.request)
-    } catch (exception) {
-        return cache.match('/favourites')
-    }
-}
-
-
 self.addEventListener('fetch', (event) => {
+    //if the url contains "/mbid/"
     if (event.request.url.includes('mbid')) {
-        return storeFavorite(event);
-    } else {
-        const response = cachedResponse(event)
-        event.respondWith(response)
+        event.respondWith(
+            //open favourites cache
+            caches.open('favouriteCache')
+                .then(cache => {
+                    //match cache with current request to see if request already exists
+                    return cache.match(event.request).then(
+                        response => {
+                            return fetch(event.request)
+                                .then(res => {
+                                    //place request in cache
+                                    cache.put(event.request, res.clone())
+                                    return res
+                                })
+                                //if request exists in cache, return item from the cache
+                                .catch(() => {
+                                    if (response) {
+                                        return response
+                                    }
+                                })
+                        }
+                    )
+                })
+        )
+    }
+    else {
+        event.respondWith(
+            //open cache
+            caches.open(staticCacheName)
+                .then(cache => {
+                    //check if requests excists in cache
+                    return cache.match(event.request).then(
+                        response => {
+                            //if it exists, load it from cache
+                            if (response) {
+                                return response
+                            }
+                            //else try to fetch the request
+                            return fetch(event.request)
+                                .then(res => {
+                                    return res
+                                })
+                        }
+                    //if the fetch fails (because of being offline) load recently viewed page
+                    )
+                    .catch((err) => {
+                    return caches.open(staticCacheName).then(cache => cache.match('/favourites'))
+                    })
+                })
+        )
     }
 })
