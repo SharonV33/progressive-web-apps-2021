@@ -60,8 +60,10 @@ JSON: /2.0/?method=tag.gettopalbums&tag=disco&api_key=YOUR_API_KEY&format=json
 In order to use this link, you need to add an api key, this can be gained by creating an account. Passing a genre (or as the api calls it, tag)
 with the url is required, I changed this to metalcore. The url can also be changed to set a limit of albums to be fetched, the
 standard is 50 which I decided to keep for testing, this could easily be changed to a larger number for production
-By using a XMLHttpRequest on the link, I was able to get the data quite easily. The data I recieved looked like this
+By using a XMLHttpRequest on the link, I was able to get the data quite easily. The data I recieved looked like this:
+
 <img src="https://i.ibb.co/x3d6YrY/Screenshot-2021-02-05-at-10-27-03.png" width="500">
+
 Each album has a name, a url to the related page on last.fm, a unique identifyer, information about the artist and 4 formats
 of album art. This structure is repeated for each album, making it easy to create a template which I can fill with data.
 
