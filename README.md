@@ -12,6 +12,7 @@ latest and most popular albums there are and get inspired by new bands and album
 * [installing](#installing)
 * [Usage and features](#usage-and-features)
 * [last.fm api](#last.fm-api)
+* [NPM packages](#NPM-packages)
 
 ## installing
 clone the repo
@@ -66,6 +67,15 @@ By using a XMLHttpRequest on the link, I was able to get the data quite easily. 
 
 Each album has a name, a url to the related page on last.fm, a unique identifyer, information about the artist and 4 formats
 of album art. This structure is repeated for each album, making it easy to create a template which I can fill with data.
+
+
+## NPM packages
+* body-parser - for getting data from the webiste and making it available it in the server
+* compression - for general compression
+* request - for fetching data from last.fm
+* ejs - templating engine
+* express - routing engine
+* nodemon - tool for watching files and restarting the server
 
 
 MIT License
