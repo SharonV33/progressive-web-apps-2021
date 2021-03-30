@@ -15,6 +15,7 @@ self.addEventListener('activate', (evt) => {
 })
 
 // fetch event
+//big thanks to robin frugte for helping me with this part
 self.addEventListener('fetch', (event) => {
     //if the url contains "/mbid/"
     if (event.request.url.includes('mbid')) {
