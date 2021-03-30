@@ -156,9 +156,13 @@ footer a:visited {
     a i {
         display: none;
     }
+
+    article section {
+        flex-direction: column;
+        align-items: center;
+    }
     .albumDetails {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
+        flex-direction: row;
         width: 100vw;
         overflow-X: hidden;
         justify-items: center;
