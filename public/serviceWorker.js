@@ -1,5 +1,5 @@
 const staticCacheName = 'site-static'
-const assets = ['/style.css', '/script.js', '/manifest.json', '/favourites', '/img/icons/icon-92x92.png', '/storeAlbums.js']
+const assets = ['/dist/style.css', '/dist/script.js', '/manifest.json', '/favourites', '/img/icons/icon-92x92.png', '/storeAlbums.js']
 
 self.addEventListener('install', (event) => {
     event.waitUntil(

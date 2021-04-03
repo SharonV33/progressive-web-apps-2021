@@ -76,6 +76,8 @@ of album art. This structure is repeated for each album, making it easy to creat
 * ejs - templating engine
 * express - routing engine
 * nodemon - tool for watching files and restarting the server
+* gulp-clean-css - minify css files
+* gulp-uglify - minify javascript files
 
 
 MIT License

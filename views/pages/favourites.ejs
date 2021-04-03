@@ -1,4 +1,11 @@
-<%- include('../partials/header') %>
+<%- include('../partials/header') %>srcset='<%= album.image[3]['#text'] %> 300w,
+<%= album.image[2]['#text'] %> 174w,
+<%= album.image[1]['#text'] %> 34w'
+sizes='(max-width: 200px) 34w,
+(max-width: 300px) 174w,
+300w'
+
+
 
 
 <section class="favourite">
@@ -7,7 +14,7 @@
 
 
 </section>
-<script defer src="/storeAlbums.js"></script>
+<script defer src="/dist/storeAlbums.js"></script>
 
 
 <%- include('../partials/footer') %>

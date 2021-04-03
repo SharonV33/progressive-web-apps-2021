@@ -2,8 +2,14 @@
 
 
 <% allAlbums.forEach(function(album) { %>
-    <a href="/mbid/<%= album.mbid%>">
-        <img src='<%= album.image[3]['#text'] %>' alt='<%= album.name %> - <%= album.artist.name%>' />
+    <a href='/mbid/<%= album.mbid%>'>
+
+        <picture>
+            <source media="(max-width: 614px)" srcset='<%= album.image[2]['#text'] %>'>
+            <source media="(min-width: 615px)" srcset='<%= album.image[3]['#text'] %>'>
+            <img src='<%= album.image[3]['#text'] %>' alt="Chris standing up holding his daughter Elva">
+        </picture>
+
     </a>
 <% }) %>
 
