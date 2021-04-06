@@ -8,7 +8,7 @@
   },
   "scripts": {
     "runDev": "npm run minify && npm run dev",
-    "start": "node app.js",
+    "start": "npm run minify && node app.js",
     "dev": "nodemon app.js",
     "minifyCss": "gulp --minifyCss",
     "minifyJs": "gulp --minifyJS",
